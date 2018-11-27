@@ -9,7 +9,7 @@ function runDemo() {
 
 function placeRook(array, location) {
 	var rook = {row:location.substr(0,1), col:location.substr(1, 1)};
-	document.getElementById(location).innerHTML = "Q";
+	document.getElementById(location).innerHTML = "R";
 	array.push(rook);
 	return array;
 }
