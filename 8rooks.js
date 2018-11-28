@@ -1,38 +1,65 @@
 function runDemo() {
-      var rooks = []; // Stores the rook objects
-      var occupiedSpots = []; // Stores the occupied spaces on the board
-	  
-	  iterate(rooks, occupiedSpots)
-	  printInfo(rooks);
-}
-
-function placeRook(array, location) {
-	var rook = {row:location.substr(0,1), col:location.substr(1, 1)};
-	document.getElementById(location).innerHTML = "R";
-	array.push(rook);
-	return array;
-}
-
-function removeRook(array, location) {
-	var index = 0;
-	for (i = 0; i < array.length; i++) {
-		if (array[i].row = location.substr(0, 1)) {
-			if (array[i].col = location.substr(1, 1)) {
-				index = i;
-				document.getElementById(location).innerHTML = "-";
+    var board = {
+      	rooks : [], // Stores the rook objects
+      	occupiedSpots : [], // Stores the occupied spaces on the board
+      	placeRook : function(location) {
+      		var rook = {row:location.substr(0,1), col:location.substr(1, 1)};
+			document.getElementById(location).innerHTML = "R";
+			this.rooks.push(rook);
+      	},
+      	removeRook : function(location) {
+      		var index = 0;
+      		for (i = 0; i < this.rooks.length; i++) {
+      			if (array[i].row = location.substr(0, 1)) {
+					if (array[i].col = location.substr(1, 1)) {
+						index = i;
+						document.getElementById(location).innerHTML = "-";
+					}
+				}
+      		}
+      		this.rooks = this.rooks.splice(index, 1);
+      	},
+      	validate : function() {
+      		var temp = checkBoard(this.rooks);
+			if (temp.row == 0 && temp.col == 0) {
+				//return true;
+				window.alert("Board is valid");
+			} else {
+				//return false;
+				window.alert("Board is not valid");
 			}
-		}
-	}
-	return array.splice(index, 1);
+      	}
+	};
+
+	//fillBoard(board);
+	board.placeRook("a1");
+	board.placeRook("a2");
+	board.validate();
+
+	printInfo(board.rooks);
 }
 
-function removeSpot(array, spot) {
-	var index = 0;
-	for (i = 0; i < array.length; i++) {
-		if (array[i] == spot) index = i;
-	}
-	return array.splice(index, 1);
-}
+
+
+// function placeRook(array, location) {
+// 	var rook = {row:location.substr(0,1), col:location.substr(1, 1)};
+// 	document.getElementById(location).innerHTML = "R";
+// 	array.push(rook);
+// 	return array;
+// }
+
+// function removeRook(array, location) {
+// 	var index = 0;
+// 	for (i = 0; i < array.length; i++) {
+// 		if (array[i].row = location.substr(0, 1)) {
+// 			if (array[i].col = location.substr(1, 1)) {
+// 				index = i;
+// 				document.getElementById(location).innerHTML = "-";
+// 			}
+// 		}
+// 	}
+// 	return array.splice(index, 1);
+// }
 
 function checkBoard(array) {
 	var occupiedRows = [];
