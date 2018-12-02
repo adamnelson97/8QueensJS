@@ -1,2 +1,2 @@
-# 8QueensJS
-A JavaScript program that finds a solution to the "8 Queens" problem created by Max Bezzel
+# 8RooksJS
+A JavaScript program that finds a random solution to the "8 Rooks" chess problem.
