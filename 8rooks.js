@@ -84,20 +84,8 @@ function randSpot() {
 }	
 
 function printInfo(array) {
-	if (array.length > 0) document.getElementById("R1").innerHTML = "R1: " + array[0].row + array[0].col;
-	if (array.length > 1) document.getElementById("R2").innerHTML = "R2: " + array[1].row + array[1].col;
-	if (array.length > 2) document.getElementById("R3").innerHTML = "R3: " + array[2].row + array[2].col;
-	if (array.length > 3) document.getElementById("R4").innerHTML = "R4: " + array[3].row + array[3].col;
-	if (array.length > 4) document.getElementById("R5").innerHTML = "R5: " + array[4].row + array[4].col;
-	if (array.length > 5) document.getElementById("R6").innerHTML = "R6: " + array[5].row + array[5].col;
-	if (array.length > 6) document.getElementById("R7").innerHTML = "R7: " + array[6].row + array[6].col;
-	if (array.length > 7) document.getElementById("R8").innerHTML = "R8: " + array[7].row + array[7].col;
-	document.getElementById(array[0].row + array[0].col).innerHTML = "R";
-	document.getElementById(array[1].row + array[1].col).innerHTML = "R";
-	document.getElementById(array[2].row + array[2].col).innerHTML = "R";
-	document.getElementById(array[3].row + array[3].col).innerHTML = "R";
-	document.getElementById(array[4].row + array[4].col).innerHTML = "R";
-	document.getElementById(array[5].row + array[5].col).innerHTML = "R";
-	document.getElementById(array[6].row + array[6].col).innerHTML = "R";
-	document.getElementById(array[7].row + array[7].col).innerHTML = "R";
+	for (i = 0; i < 8; i++) {
+		document.getElementById("R" + (i + 1)).innerHTML = "R" + (i + 1) + ": " + array[i].row + array[i].col;
+		document.getElementById(array[i].row + array[i].col).innerHTML = "R";
+	}
 }
