@@ -85,7 +85,7 @@ function randSpot() {
 
 function printInfo(array) {
 	for (i = 0; i < 8; i++) {
-		document.getElementById("R" + (i + 1)).innerHTML = "R" + (i + 1) + ": " + array[i].row + array[i].col;
+		document.getElementById("R" + (i + 1)).innerHTML = "R" + (i + 1) + ": " + array[i].row + array[i].col + "&nbsp;&nbsp;&nbsp;&nbsp;";
 		document.getElementById(array[i].row + array[i].col).innerHTML = "R";
 	}
 }
